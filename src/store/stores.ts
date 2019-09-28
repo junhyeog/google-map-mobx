@@ -19,7 +19,6 @@ export class Mark{
 
 class MarkList {
     @observable marks = []
-    aa = autorun(() => console.log(this.marks))
 }
 
 export default MarkList;

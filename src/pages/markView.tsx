@@ -31,17 +31,17 @@ const MarkView = observer((mark: Mark) => (
     </li>
 ))
 
+
+const store = new MarkList();
+
 export default () => {
-    const store = useObservable({
-        marks: [new Mark({name:"T1", lat: "59.955413", lng: "30.337844"})],
-        addMark(mark: Mark) {
-            store.marks.push(mark);
-            console.log(store.marks);
-        }
-    });
+    const addMark=(mark:Mark)=>{
+        store.marks.push(mark);
+        console.log(store.marks)
+    }
     
     return (<>
-        <button onClick={e => store.addMark(new Mark({name:"T1", lat: "59.955413", lng: "30.337844"}))}>
+        <button onClick={e => addMark(new Mark({name:"T1", lat: "59.955413", lng: "30.337844"}))}>
             Add mark
         </button>
         <MarkListView markList={store} />
