@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, autorun } from 'mobx'
 import { useStaticRendering } from 'mobx-react'
 
 const isServer = typeof window === 'undefined'
@@ -23,7 +23,10 @@ interface MarkType {
 export default class MarkList {
     @observable marks:Mark[] = []
 
-    @action push=({mark}:MarkType)=>{
+    @action push=(mark:Mark)=>{
         this.marks.push(mark)
     }
 }
+autorun(() => {
+    console.log("hi")
+})
