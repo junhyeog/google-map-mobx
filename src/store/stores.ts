@@ -28,5 +28,5 @@ export default class MarkList {
     }
 }
 autorun(() => {
-    console.log("hi")
+    console.log("hi from store")
 })
