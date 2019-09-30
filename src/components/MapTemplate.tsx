@@ -2,14 +2,15 @@ import * as React from 'react';
 import { Mark } from "../store/store";
 import MarkView from "./MarkView";
 import { inject, observer } from "mobx-react";
+import Map from './GoogleMap';
 
 
-const MapTemplate = ({marks}) => {
-    const marksView = marks.map(mark => <MarkView mark={mark} key={mark.id} />)
+const MapTemplate = ({marks, onPop}: any) => {
+    const marksView = marks.map((mark: Mark) => <MarkView mark={mark} onPop={onPop} key={mark.id} />)
     return (
         <div>
             <div>
-                MAP
+                <Map />
             </div>
             <div>
                 {marksView}
@@ -19,7 +20,7 @@ const MapTemplate = ({marks}) => {
     )
 }
 
-// **** inject, observer 적용
 export default inject(({ markStore }) => ({
-    marks: markStore.marks
+    marks: markStore.marks,
+    onPop: markStore.pop
   }))(observer(MapTemplate));
