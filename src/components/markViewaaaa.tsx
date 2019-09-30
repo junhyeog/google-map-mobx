@@ -1,5 +1,5 @@
 import * as React from "react";
-import MarkList, { Mark } from "../store/stores";
+import MarkList, { Mark } from "../store/store";
 // import { observer, inject } from "mobx-react";
 import { observer, useObservable } from 'mobx-react-lite'; //observer로 래핑된 함수형 컴포넌트에서 hook을 사용하려면 mobx-react v6이나 lite를 사용해야함
 

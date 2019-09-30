@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from 'react';
-import {Mark} from "../store/stores";
+import {Mark} from "../store/store";
 
 class PostMark extends React.Component  {
     newMark=new Mark ({name: "T0", lat:"59.95", lng:"30.33"})

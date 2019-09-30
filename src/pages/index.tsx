@@ -1,30 +1,24 @@
 import * as React from 'react';
-
+import MapTemplate from "../components/MapTemplate";
+import Markstore, {Mark} from "../store/store";
+import DevTools from "mobx-react-devtools";
 import { Provider } from 'mobx-react';
 
-import GetMarkList from './GetMarkList';
-import PostMark from "./PostMark";
-import AddMark from './markView';
+const mark=new Mark({name:"T0", lat:"60", lng:"30"})
+const markStore=new Markstore(mark)
 
-import MarkList, { Mark } from "../store/stores";
-import { observable } from 'mobx';
-import { observer } from 'mobx-react-lite';
+const Index = () => {
 
-const store = new MarkList();
-
-
-const Index = observer(() => {
     return (
-        // <Provider store={store}>
+        <Provider markStore={markStore}>
             <div>
-                Main page<br />
-                {/* <GetMarkList /> */}
-                <GetMarkList markList={store} />
-                {/* <AddMark /> */}
-                <PostMark />
+                Main page
+                <MapTemplate />
             </div>
-        // </Provider>
+            <DevTools />
+        </Provider>
+            
     );
-})
+}
 
 export default Index;
